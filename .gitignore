@@ -1,0 +1,5 @@
+/target/
+/config/local.json
+/onnxruntime/
+.env
+*.log

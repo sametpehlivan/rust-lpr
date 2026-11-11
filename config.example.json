@@ -1,0 +1,95 @@
+{
+  "api_bind": "127.0.0.1:8080",
+  "tcp_destination": "127.0.0.1:9000",
+  "tcp_queue_capacity": 1024,
+  "inference": {
+    "plate_detector": "models/detector.onnx",
+    "plate_ocr": "models/ocr.onnx",
+    "device": "cpu",
+    "worker_count": 1,
+    "plate_threshold": 0.5,
+    "ocr_threshold": 0.8,
+    "max_plates_per_frame": 10
+  },
+  "cameras": [
+    {
+      "id": "entrance-1",
+      "rtsp_url": "rtsp://localhost:8554/live/1",
+      "width": 768,
+      "height": 432,
+      "fps": 25,
+      "roi": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "polygon": [],
+      "max_track_age_frames": 7,
+      "max_track_idle_seconds": 5,
+      "onnx_sessions": {
+        "detector": {
+          "intra_threads": 4,
+          "inter_threads": 1,
+          "parallel_execution": false,
+          "optimization_level": "all",
+          "intra_op_spinning": false,
+          "inter_op_spinning": false,
+          "memory_pattern": true,
+          "cpu_mem_arena": true
+        },
+        "ocr": {
+          "intra_threads": 1,
+          "inter_threads": 1,
+          "parallel_execution": false,
+          "optimization_level": "all",
+          "intra_op_spinning": false,
+          "inter_op_spinning": false,
+          "memory_pattern": true,
+          "cpu_mem_arena": true
+        }
+      }
+    },
+    {
+      "id": "entrance-2",
+      "rtsp_url": "rtsp://localhost:8554/live/1",
+      "width": 768,
+      "height": 432,
+      "fps": 25,
+      "roi": [
+        0.0,
+        0.0,
+        1.0,
+        1.0
+      ],
+      "polygon": [],
+      "max_track_age_frames": 7,
+      "max_track_idle_seconds": 5,
+      "onnx_sessions": {
+        "detector": {
+          "intra_threads": 4,
+          "inter_threads": 1,
+          "parallel_execution": false,
+          "optimization_level": "all",
+          "intra_op_spinning": false,
+          "inter_op_spinning": false,
+          "memory_pattern": true,
+          "cpu_mem_arena": true
+        },
+        "ocr": {
+          "intra_threads": 1,
+          "inter_threads": 1,
+          "parallel_execution": false,
+          "optimization_level": "all",
+          "intra_op_spinning": false,
+          "inter_op_spinning": false,
+          "memory_pattern": true,
+          "cpu_mem_arena": true
+        }
+      }
+    }
+  ],
+  "frame_queue_capacity": 25,
+  "ffmpeg_decoder_threads": 1,
+  "ffmpeg_filter_threads": 1
+}
